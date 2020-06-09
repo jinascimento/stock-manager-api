@@ -10,8 +10,8 @@ module V1
 
     # POST /stores
     def create
-      @store = Store.create!(store_params)
-      json_response(@store, :created)
+      @store_creator = StoreManager::StoreCreator.call(store_params)
+      json_response(@store_creator, :created)
     end
 
     # GET /stores/:id
@@ -21,13 +21,13 @@ module V1
 
     # PUT /stores/:id
     def update
-      @store.update(store_params)
-      json_response(@store, :ok)
+      @store_updator = StoreManager::StoreUpdator.call(@store, store_params)
+      json_response(@store_updator, :ok)
     end
 
     # DELETE /stores/:id
     def destroy
-      @store.destroy
+      StoreManager::StoreDestroyer.call(@store)
       head :no_content
     end
 
