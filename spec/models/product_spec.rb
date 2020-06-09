@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   context 'associations' do
-    it { should belong_to(:stock_item) }
+    it { should have_one(:stock_item) }
   end
 
   context 'validations' do

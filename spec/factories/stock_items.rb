@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :stock_item do
-    quantity { 2 }
+    quantity { Faker::Number.number(digits: 2) }
     store
+    product
   end
 end

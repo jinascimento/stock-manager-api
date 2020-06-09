@@ -1,6 +1,6 @@
 class StockItem < ApplicationRecord
   belongs_to :store, required: true
-  has_one :product, required: true
+  belongs_to :product, required: true
 
   validates :quantity, presence: true
 

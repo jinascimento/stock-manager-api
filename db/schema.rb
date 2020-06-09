@@ -21,17 +21,17 @@ ActiveRecord::Schema.define(version: 2020_06_09_175112) do
     t.integer "net_weight"
     t.decimal "cost_price", precision: 15, scale: 2, null: false
     t.decimal "price", precision: 15, scale: 2, null: false
-    t.bigint "stock_item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["stock_item_id"], name: "index_products_on_stock_item_id"
   end
 
   create_table "stock_items", force: :cascade do |t|
     t.bigint "store_id", null: false
+    t.bigint "product_id", null: false
     t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_stock_items_on_product_id"
     t.index ["store_id"], name: "index_stock_items_on_store_id"
   end
 

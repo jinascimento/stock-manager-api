@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  belongs_to :stock_item
+  has_one :stock_item, dependent: :destroy
 
   validates :name, presence: true
   validates :cost_price, presence: true

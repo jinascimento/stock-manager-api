@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :store do
-    name { 'Loja teste' }
+    name { Faker::Name.name }
     stock_item
   end
 end
