@@ -2,30 +2,30 @@ module V1
   class StoresController < ApplicationController
     before_action :set_store, only: [:show, :update, :destroy]
 
-    # GET /Stores
+    # GET /stores
     def index
       @store = Store.all
       json_response(@store)
     end
 
-    # POST /Stores
+    # POST /stores
     def create
       @store = Store.create!(store_params)
       json_response(@store, :created)
     end
 
-    # GET /Stores/:id
+    # GET /stores/:id
     def show
       json_response(@store)
     end
 
-    # PUT /Stores/:id
+    # PUT /stores/:id
     def update
       @store.update(store_params)
-      json_response(@store, :created)
+      json_response(@store, :ok)
     end
 
-    # DELETE /Stores/:id
+    # DELETE /stores/:id
     def destroy
       @store.destroy
       head :no_content

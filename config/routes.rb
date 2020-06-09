@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   api_version(module: 'V1', path: {value: 'v1'}) do
     resources :stores do
-      resources :stock_items
+      resources :stock_items, module: :stores
     end
     resources :products
   end

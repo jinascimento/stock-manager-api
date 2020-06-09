@@ -2,32 +2,32 @@ module V1
   class ProductsController < ApplicationController
     before_action :set_product, only: [:show, :update, :destroy]
 
-    # GET /Products
+    # GET /products
     def index
       @product = Product.all
       json_response(@product)
     end
 
-    # POST /Products
+    # POST /products
     def create
       @product = Product.create!(product_params)
       json_response(@product, :created)
     end
 
-    # GET /Products/:id
+    # GET /products/:id
     def show
       json_response(@product)
     end
 
-    # PUT /Products/:id
+    # PUT /products/:id
     def update
-      @product.update(product_params)
-      json_response(@product, :created)
+      @product.update!(product_params)
+      json_response(@product, :ok)
     end
 
-    # DELETE /Products/:id
+    # DELETE /products/:id
     def destroy
-      @product.destroy
+      @product.destroy!
       head :no_content
     end
 
