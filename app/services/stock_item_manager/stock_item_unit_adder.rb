@@ -10,6 +10,7 @@ module StockItemManager
       @stock_item.with_lock do
         @stock_item.remaining_amount += @units
         @stock_item.save!
+        @stock_item
       end
     end
   end

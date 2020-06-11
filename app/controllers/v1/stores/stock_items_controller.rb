@@ -40,13 +40,15 @@ module V1
       end
 
       def add_units
-        StockItemManager::StockItemUnitAdder.call(@stock_item,
+        @stock_item = StockItemManager::StockItemUnitAdder.call(@stock_item,
                                                   params[:quantity])
+        json_response(@stock_item, :ok)
       end
 
       def remove_units
-        StockItemManager::StockItemUnitRemover.call(@stock_item,
+        @stock_item = StockItemManager::StockItemUnitRemover.call(@stock_item,
                                                   params[:quantity])
+        json_response(@stock_item, :ok)
       end
 
       private
