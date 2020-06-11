@@ -3,7 +3,8 @@
 module V1
   module Stores
     class StockItemsController < ApplicationController
-      before_action :set_stock_item, only: %i[show update destroy]
+      before_action :set_stock_item, only:
+          %i[show update destroy add_units remove_units]
 
       # GET /stock_items
       def index
@@ -38,11 +39,21 @@ module V1
         head :no_content
       end
 
+      def add_units
+        StockItemManager::StockItemUnitAdder.call(@stock_item,
+                                                  params[:quantity])
+      end
+
+      def remove_units
+        StockItemManager::StockItemUnitRemover.call(@stock_item,
+                                                  params[:quantity])
+      end
+
       private
 
       def stock_item_params
         # whitelist params
-        params.permit(:quantity, :product_id)
+        params.permit(:remaining_amount, :product_id)
       end
 
       def store
@@ -50,7 +61,8 @@ module V1
       end
 
       def set_stock_item
-        @stock_item = StockItem.where(id: params[:id], store_id: params[:store_id]).first!
+        @stock_item = StockItem.where(id: params[:id],
+                                      store_id: params[:store_id]).first!
       end
     end
   end

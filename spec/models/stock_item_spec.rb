@@ -7,7 +7,7 @@ RSpec.describe StockItem, type: :model do
   end
 
   context 'validations' do
-    it { should validate_presence_of(:quantity) }
+    it { should validate_presence_of(:remaining_amount) }
   end
 
 end

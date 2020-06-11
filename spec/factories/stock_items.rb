@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :stock_item do
-    quantity { 1 }
+    remaining_amount { 1 }
     store
     product
   end
