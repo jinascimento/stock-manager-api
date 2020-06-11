@@ -10,7 +10,7 @@ module V1
 
     # POST /products
     def create
-      @product = Product.create!(product_params)
+      @product = ProductManager::ProductCreator.call(product_params)
       json_response(@product, :created)
     end
 
@@ -21,13 +21,13 @@ module V1
 
     # PUT /products/:id
     def update
-      @product.update!(product_params)
+      @product = ProductManager::ProductUpdator.call(@product, product_params)
       json_response(@product, :ok)
     end
 
     # DELETE /products/:id
     def destroy
-      @product.destroy!
+      ProductManager::ProductDestroyer.call(@product)
       head :no_content
     end
 
