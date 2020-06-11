@@ -13,8 +13,9 @@ module V1
 
       # POST /stock_items
       def create
-        @stock_item = store.stock_items.build(stock_item_params)
-        @stock_item.save!
+        @stock_item = StockItemManager::StockItemCreator.call(
+          store.stock_items.build(stock_item_params).attributes
+        )
         json_response(@stock_item, :created)
       end
 
@@ -25,13 +26,15 @@ module V1
 
       # PUT /stock_items/:id
       def update
-        @stock_item.update!(stock_item_params)
-        json_response(@stock_item, :created)
+        @stock_item = StockItemManager::StockItemUpdator.call(
+          @stock_item, stock_item_params
+        )
+        json_response(@stock_item, :ok)
       end
 
       # DELETE /stock_items/:id
       def destroy
-        @stock_item.destroy!
+        StockItemManager::StockItemDestroyer.call(@stock_item)
         head :no_content
       end
 

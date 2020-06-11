@@ -1,23 +1,23 @@
 require 'rails_helper'
 
-RSpec.describe ProductManager::ProductUpdator, type: :service do
+RSpec.describe StockItemManager::StockItemUpdator, type: :service do
   describe '#call' do
-    context 'when valid product' do
-      it 'returns product object updated' do
-        product = FactoryBot.create(:product)
-        attributes = { name: Faker::Name.name }
+    context 'when valid stock_item' do
+      it 'returns stock_item object updated' do
+        stock_item = FactoryBot.create(:stock_item)
+        attributes = { quantity: 3 }
 
-        result = described_class.call(product, attributes)
-        expect(result.name).to eq(attributes[:name])
+        result = described_class.call(stock_item, attributes)
+        expect(result.quantity).to eq(attributes[:quantity])
       end
     end
 
     context 'when invalid attributes' do
       it 'return exception' do
-        product = FactoryBot.create(:product)
-        attributes = { name: nil }
+        stock_item = FactoryBot.create(:stock_item)
+        attributes = { quantity: nil }
 
-        expect { described_class.call(product, attributes) }
+        expect { described_class.call(stock_item, attributes) }
             .to raise_error(ActiveRecord::RecordInvalid)
       end
     end
