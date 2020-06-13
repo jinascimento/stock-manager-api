@@ -20,7 +20,7 @@ describe 'Stores API' do
                properties: {
                    id: { type: :integer },
                    name: { type: :string },
-                   stock_items: { type: :object }
+                   stock_items: { type: :array }
                },
                required: %w[id]
 
@@ -75,11 +75,12 @@ describe 'Stores API' do
                properties: {
                  id: { type: :integer },
                  name: { type: :string },
-                 stock_items: { type: :object }
+                 stock_items: { type: :array }
                },
                required: %w[id]
 
         let(:store) { FactoryBot.create(:store) }
+        let(:id) { store.id }
         run_test!
       end
 
@@ -90,7 +91,9 @@ describe 'Stores API' do
                }
 
 
+        let(:store_create) { FactoryBot.create(:store) }
         let(:store) { { name: nil }}
+        let(:id) { store_create.id }
         run_test!
       end
     end
@@ -105,7 +108,7 @@ describe 'Stores API' do
                properties: {
                    id: { type: :integer },
                    name: { type: :string },
-                   stock_items: { type: :object }
+                   stock_items: { type: :array }
                },
                required: %w[id]
 

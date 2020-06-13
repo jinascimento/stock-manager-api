@@ -34,7 +34,7 @@
                   "type": "number"
                 },
                 "net_weight": {
-                  "type": "integer"
+                  "type": "string"
                 }
               },
               "required": [
@@ -61,13 +61,13 @@
                   "type": "string"
                 },
                 "cost_price": {
-                  "type": "number"
+                  "type": "string"
                 },
                 "price": {
-                  "type": "number"
+                  "type": "string"
                 },
                 "net_weight": {
-                  "type": "integer"
+                  "type": "number"
                 },
                 "created_at": {
                   "type": "string"
@@ -119,13 +119,13 @@
                     "type": "string"
                   },
                   "cost_price": {
-                    "type": "number"
+                    "type": "string"
                   },
                   "price": {
-                    "type": "number"
+                    "type": "string"
                   },
                   "net_weight": {
-                    "type": "integer"
+                    "type": "string"
                   },
                   "created_at": {
                     "type": "string"
@@ -199,13 +199,13 @@
                   "type": "string"
                 },
                 "cost_price": {
-                  "type": "number"
+                  "type": "string"
                 },
                 "price": {
-                  "type": "number"
+                  "type": "string"
                 },
                 "net_weight": {
-                  "type": "integer"
+                  "type": "number"
                 },
                 "created_at": {
                   "type": "string"
@@ -261,13 +261,13 @@
                   "type": "string"
                 },
                 "cost_price": {
-                  "type": "number"
+                  "type": "string"
                 },
                 "price": {
-                  "type": "number"
+                  "type": "string"
                 },
                 "net_weight": {
-                  "type": "integer"
+                  "type": "number"
                 },
                 "created_at": {
                   "type": "string"
@@ -402,10 +402,10 @@
                       "type": "string"
                     },
                     "cost_price": {
-                      "type": "number"
+                      "type": "string"
                     },
                     "price": {
-                      "type": "number"
+                      "type": "string"
                     },
                     "net_weight": {
                       "type": "integer"
@@ -444,6 +444,14 @@
         ],
         "consumes": [
           "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "store_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
         ],
         "responses": {
           "200": {
@@ -563,10 +571,10 @@
                       "type": "string"
                     },
                     "cost_price": {
-                      "type": "number"
+                      "type": "string"
                     },
                     "price": {
-                      "type": "number"
+                      "type": "string"
                     },
                     "net_weight": {
                       "type": "integer"
@@ -668,10 +676,10 @@
                       "type": "string"
                     },
                     "cost_price": {
-                      "type": "number"
+                      "type": "string"
                     },
                     "price": {
-                      "type": "number"
+                      "type": "string"
                     },
                     "net_weight": {
                       "type": "integer"
@@ -821,10 +829,10 @@
                       "type": "string"
                     },
                     "cost_price": {
-                      "type": "number"
+                      "type": "string"
                     },
                     "price": {
-                      "type": "number"
+                      "type": "string"
                     },
                     "net_weight": {
                       "type": "integer"
@@ -841,17 +849,6 @@
               "required": [
                 "store_id"
               ]
-            }
-          },
-          "422": {
-            "description": "Unprocessable Entity",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "type": "string"
-                }
-              }
             }
           },
           "404": {
@@ -945,10 +942,10 @@
                       "type": "string"
                     },
                     "cost_price": {
-                      "type": "number"
+                      "type": "string"
                     },
                     "price": {
-                      "type": "number"
+                      "type": "string"
                     },
                     "net_weight": {
                       "type": "integer"
@@ -965,17 +962,6 @@
               "required": [
                 "store_id"
               ]
-            }
-          },
-          "422": {
-            "description": "Unprocessable Entity",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "type": "string"
-                }
-              }
             }
           },
           "404": {
@@ -1031,7 +1017,7 @@
                   "type": "string"
                 },
                 "stock_items": {
-                  "type": "object"
+                  "type": "array"
                 }
               },
               "required": [
@@ -1122,7 +1108,7 @@
                   "type": "string"
                 },
                 "stock_items": {
-                  "type": "object"
+                  "type": "array"
                 }
               },
               "required": [
@@ -1172,7 +1158,7 @@
                   "type": "string"
                 },
                 "stock_items": {
-                  "type": "object"
+                  "type": "array"
                 }
               },
               "required": [

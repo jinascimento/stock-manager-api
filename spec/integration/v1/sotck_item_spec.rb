@@ -31,8 +31,8 @@ describe 'StockItems API' do
                               id: { type: :integer },
                               name: { type: :string },
                               description: { type: :string },
-                              cost_price: { type: :number },
-                              price: { type: :number },
+                              cost_price: { type: :string },
+                              price: { type: :string },
                               net_weight: { type: :integer },
                               created_at: { type: :string },
                               updated_at: { type: :string }
@@ -42,6 +42,7 @@ describe 'StockItems API' do
                required: %w[store_id]
 
         let(:stock_item) { FactoryBot.create(:stock_item) }
+        let(:store_id) { stock_item.store_id }
         run_test!
       end
 
@@ -51,7 +52,9 @@ describe 'StockItems API' do
                  message: { type: :string }
                }
 
+        let(:stock_item_create) { FactoryBot.create(:stock_item) }
         let(:stock_item) { { name: nil } }
+        let(:store_id) { stock_item_create.store_id }
         run_test!
       end
     end
@@ -59,6 +62,7 @@ describe 'StockItems API' do
     get 'List all stock_items' do
       tags 'StockItems'
       consumes 'application/json'
+      parameter name: :store_id, in: :path, type: :string
 
       response '200', 'OK' do
         schema type: :array,
@@ -74,7 +78,9 @@ describe 'StockItems API' do
                    updated_at: { type: :string }
                    }
                }
-        FactoryBot.create_list(:stock_item, 2)
+
+        let(:stock_item) { FactoryBot.create(:stock_item) }
+        let(:store_id) { stock_item.store_id }
         run_test!
       end
     end
@@ -109,8 +115,8 @@ describe 'StockItems API' do
                               id: { type: :integer },
                               name: { type: :string },
                               description: { type: :string },
-                              cost_price: { type: :number },
-                              price: { type: :number },
+                              cost_price: { type: :string },
+                              price: { type: :string },
                               net_weight: { type: :integer },
                               created_at: { type: :string },
                               updated_at: { type: :string }
@@ -120,6 +126,8 @@ describe 'StockItems API' do
                required: %w[store_id]
 
         let(:stock_item) { FactoryBot.create(:stock_item) }
+        let(:id) { stock_item.id }
+        let(:store_id) { stock_item.store_id }
         run_test!
       end
 
@@ -129,7 +137,10 @@ describe 'StockItems API' do
                    message: { type: :string }
                }
 
-        let(:stock_item) { { name: nil } }
+        let(:stock_item_create) { FactoryBot.create(:stock_item) }
+        let(:stock_item) { { product_id: nil } }
+        let(:id) { stock_item_create.id }
+        let(:store_id) { stock_item_create.store_id }
         run_test!
       end
 
@@ -139,6 +150,9 @@ describe 'StockItems API' do
                    message: { type: :string }
                }
 
+        let(:stock_item_create) { FactoryBot.create(:stock_item) }
+        let(:stock_item) { { product_id: nil } }
+        let(:store_id) { stock_item_create.store_id }
         let(:id) { 0 }
 
         run_test!
@@ -165,8 +179,8 @@ describe 'StockItems API' do
                               id: { type: :integer },
                               name: { type: :string },
                               description: { type: :string },
-                              cost_price: { type: :number },
-                              price: { type: :number },
+                              cost_price: { type: :string },
+                              price: { type: :string },
                               net_weight: { type: :integer },
                               created_at: { type: :string },
                               updated_at: { type: :string }
@@ -175,7 +189,9 @@ describe 'StockItems API' do
                },
                required: %w[store_id id]
 
-        let(:id) { FactoryBot.create(:stock_item).id }
+        let(:stock_item_create) { FactoryBot.create(:stock_item) }
+        let(:id) { stock_item_create.id }
+        let(:store_id) { stock_item_create.store_id }
 
         run_test!
       end
@@ -186,7 +202,9 @@ describe 'StockItems API' do
                  message: { type: :string }
                }
 
+        let(:stock_item_create) { FactoryBot.create(:stock_item) }
         let(:id) { 0 }
+        let(:store_id) { stock_item_create.store_id }
 
         run_test!
       end
@@ -199,7 +217,9 @@ describe 'StockItems API' do
       parameter name: :id, in: :path, type: :string
 
       response '204', 'No content' do
-        let(:id) { FactoryBot.create(:stock_item).id }
+        let(:stock_item_create) { FactoryBot.create(:stock_item) }
+        let(:id) { stock_item_create.id }
+        let(:store_id) { stock_item_create.store_id }
 
         run_test!
       end
@@ -210,7 +230,9 @@ describe 'StockItems API' do
                  message: { type: :string }
                }
 
+        let(:stock_item_create) { FactoryBot.create(:stock_item) }
         let(:id) { 0 }
+        let(:store_id) { stock_item_create.store_id }
 
         run_test!
       end
@@ -245,8 +267,8 @@ describe 'StockItems API' do
                               id: { type: :integer },
                               name: { type: :string },
                               description: { type: :string },
-                              cost_price: { type: :number },
-                              price: { type: :number },
+                              cost_price: { type: :string },
+                              price: { type: :string },
                               net_weight: { type: :integer },
                               created_at: { type: :string },
                               updated_at: { type: :string }
@@ -256,16 +278,8 @@ describe 'StockItems API' do
                required: %w[store_id]
 
         let(:stock_item) { FactoryBot.create(:stock_item) }
-        run_test!
-      end
-
-      response '422', 'Unprocessable Entity' do
-        schema type: :object,
-               properties: {
-                 message: { type: :string }
-               }
-
-        let(:stock_item) { { name: nil } }
+        let(:id) { stock_item.id }
+        let(:store_id) { stock_item.store_id }
         run_test!
       end
 
@@ -275,7 +289,9 @@ describe 'StockItems API' do
                    message: { type: :string }
                }
 
+        let(:stock_item) { FactoryBot.create(:stock_item) }
         let(:id) { 0 }
+        let(:store_id) { stock_item.store_id }
 
         run_test!
       end
@@ -310,8 +326,8 @@ describe 'StockItems API' do
                                   id: { type: :integer },
                                   name: { type: :string },
                                   description: { type: :string },
-                                  cost_price: { type: :number },
-                                  price: { type: :number },
+                                  cost_price: { type: :string },
+                                  price: { type: :string },
                                   net_weight: { type: :integer },
                                   created_at: { type: :string },
                                   updated_at: { type: :string }
@@ -321,16 +337,8 @@ describe 'StockItems API' do
                required: %w[store_id]
 
         let(:stock_item) { FactoryBot.create(:stock_item) }
-        run_test!
-      end
-
-      response '422', 'Unprocessable Entity' do
-        schema type: :object,
-               properties: {
-                   message: { type: :string }
-               }
-
-        let(:stock_item) { { name: nil } }
+        let(:id) { stock_item.id }
+        let(:store_id) { stock_item.store_id }
         run_test!
       end
 
@@ -340,7 +348,9 @@ describe 'StockItems API' do
                    message: { type: :string }
                }
 
+        let(:stock_item) { FactoryBot.create(:stock_item) }
         let(:id) { 0 }
+        let(:store_id) { stock_item.store_id }
 
         run_test!
       end

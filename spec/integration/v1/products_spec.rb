@@ -14,7 +14,7 @@ describe 'Products API' do
           description: { type: :string },
           cost_price: { type: :number },
           price: { type: :number },
-          net_weight: { type: :integer }
+          net_weight: { type: :string }
         },
         required: %w[name cost_price price]
       }
@@ -25,9 +25,9 @@ describe 'Products API' do
                  id: { type: :integer },
                  name: { type: :string },
                  description: { type: :string },
-                 cost_price: { type: :number },
-                 price: { type: :number },
-                 net_weight: { type: :integer },
+                 cost_price: { type: :string },
+                 price: { type: :string },
+                 net_weight: { type: :number },
                  created_at: { type: :string },
                  updated_at: { type: :string }
                },
@@ -59,9 +59,9 @@ describe 'Products API' do
                    id: { type: :integer },
                    name: { type: :string },
                    description: { type: :string },
-                   cost_price: { type: :number },
-                   price: { type: :number },
-                   net_weight: { type: :integer },
+                   cost_price: { type: :string },
+                   price: { type: :string },
+                   net_weight: { type: :string },
                    created_at: { type: :string },
                    updated_at: { type: :string }
                  }
@@ -94,15 +94,16 @@ describe 'Products API' do
                properties: {
                  name: { type: :string },
                  description: { type: :string },
-                 cost_price: { type: :number },
-                 price: { type: :number },
-                 net_weight: { type: :integer },
+                 cost_price: { type: :string },
+                 price: { type: :string },
+                 net_weight: { type: :number },
                  created_at: { type: :string },
                  updated_at: { type: :string }
                },
                required: %w[id]
 
         let(:product) { FactoryBot.create(:product) }
+        let(:id) { product.id }
         run_test!
       end
 
@@ -112,7 +113,9 @@ describe 'Products API' do
                  message: { type: :string }
                }
 
+        let(:product_create) { FactoryBot.create(:product) }
         let(:product) { { name: nil } }
+        let(:id) { product_create.id }
         run_test!
       end
     end
@@ -127,9 +130,9 @@ describe 'Products API' do
                properties: {
                  name: { type: :string },
                  description: { type: :string },
-                 cost_price: { type: :number },
-                 price: { type: :number },
-                 net_weight: { type: :integer },
+                 cost_price: { type: :string },
+                 price: { type: :string },
+                 net_weight: { type: :number },
                  created_at: { type: :string },
                  updated_at: { type: :string }
                },
