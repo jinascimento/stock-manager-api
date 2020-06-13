@@ -43,6 +43,8 @@ describe 'Stores API' do
     get 'List all stores' do
       tags 'Stores'
       consumes 'application/json'
+      parameter name: :page, in: :query, type: :string
+      parameter name: :per_page, in: :query, type: :string
 
       response '200', 'OK' do
         schema type: :array,

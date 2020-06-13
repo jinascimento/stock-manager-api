@@ -8,7 +8,8 @@ module V1
 
       # GET /stock_items
       def index
-        @stock_item = StockItem.all
+        @stock_item = StockItem.all.paginate(page: params[:page],
+                                             per_page: params[:per_page])
         json_response(@stock_item)
       end
 

@@ -63,6 +63,8 @@ describe 'StockItems API' do
       tags 'StockItems'
       consumes 'application/json'
       parameter name: :store_id, in: :path, type: :string
+      parameter name: :page, in: :query, type: :string
+      parameter name: :per_page, in: :query, type: :string
 
       response '200', 'OK' do
         schema type: :array,

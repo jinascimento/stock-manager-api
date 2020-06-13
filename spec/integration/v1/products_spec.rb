@@ -51,6 +51,8 @@ describe 'Products API' do
     get 'List all products' do
       tags 'Products'
       consumes 'application/json'
+      parameter name: :page, in: :query, type: :string
+      parameter name: :per_page, in: :query, type: :string
 
       response '200', 'OK' do
         schema type: :array,
