@@ -8,21 +8,29 @@ describe 'Stores API' do
       tags 'Stores'
       consumes 'application/json'
       parameter name: :store, in: :body, schema: {
-          type: :object,
-          properties: {
-              name: { type: :string }
-          },
-          required: ['name']
+        type: :object,
+        properties: {
+          name: { type: :string }
+        },
+        required: ['name']
       }
 
       response '201', 'created' do
         schema type: :object,
                properties: {
-                   id: { type: :integer },
-                   name: { type: :string },
-                   stock_items: { type: :array }
-               },
-               required: %w[id]
+                 data: {
+                   type: :object,
+                   properties: {
+                     id: { type: :string },
+                     type: { type: :string },
+                     attributes: { type: :object,
+                                   properties: {
+                                     name: { type: :string },
+                                   }
+                     }
+                   }
+                 }
+               }
 
         let(:store) { FactoryBot.create(:store) }
         run_test!
@@ -31,7 +39,7 @@ describe 'Stores API' do
       response '422', 'Unprocessable Entity' do
         schema type: :object,
                properties: {
-                   message: { type: :string }
+                 message: { type: :string }
                }
 
 
@@ -43,17 +51,31 @@ describe 'Stores API' do
     get 'List all stores' do
       tags 'Stores'
       consumes 'application/json'
-      parameter name: :page, in: :query, type: :string
-      parameter name: :per_page, in: :query, type: :string
+      parameter name: :'page[number]', in: :query, type: :string
+      parameter name: :'page[size]', in: :query, type: :string
 
       response '200', 'OK' do
-        schema type: :array,
-               items: {
-                 properties: {
-                   id: { type: :integer }
+        schema type: :object,
+               properties: {
+                 data: {
+                   type: :array,
+                   items: {
+                     properties: {
+                       id: { type: :string },
+                       type: { type: :string },
+                       attributes: { type: :object,
+                                     properties: {
+                                       name: { type: :string }
+                                     }
+                       }
+                     }
+                   }
                  }
                }
         FactoryBot.create(:store)
+        let(:'page[number]') { 1 }
+        let(:'page[size]') { 2 }
+
         run_test!
       end
     end
@@ -75,11 +97,20 @@ describe 'Stores API' do
       response '200', 'OK' do
         schema type: :object,
                properties: {
-                 id: { type: :integer },
-                 name: { type: :string },
-                 stock_items: { type: :array }
-               },
-               required: %w[id]
+                 data: {
+                   type: :object,
+                   properties: {
+                     id: { type: :string },
+                     type: { type: :string },
+                     attributes: { type: :object,
+                                   properties: {
+                                     id: { type: :string },
+                                     name: { type: :string }
+                                   }
+                     }
+                   }
+                 }
+               }
 
         let(:store) { FactoryBot.create(:store) }
         let(:id) { store.id }
@@ -108,11 +139,19 @@ describe 'Stores API' do
       response '200', 'OK' do
         schema type: :object,
                properties: {
-                   id: { type: :integer },
-                   name: { type: :string },
-                   stock_items: { type: :array }
-               },
-               required: %w[id]
+                 data: {
+                   type: :object,
+                   properties: {
+                     id: { type: :string },
+                     type: { type: :string },
+                     attributes: { type: :object,
+                                   properties: {
+                                     name: { type: :string }
+                                   }
+                     }
+                  }
+                 }
+               }
 
         let(:id) { FactoryBot.create(:store).id }
 

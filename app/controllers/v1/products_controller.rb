@@ -4,8 +4,7 @@ module V1
 
     # GET /products
     def index
-      @product = Product.all.paginate(page: params[:page],
-                                      per_page: params[:per_page])
+      @product = pagination(Product.all)
       json_response(@product)
     end
 

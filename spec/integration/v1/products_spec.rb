@@ -22,16 +22,25 @@ describe 'Products API' do
       response '201', 'created' do
         schema type: :object,
                properties: {
-                 id: { type: :integer },
-                 name: { type: :string },
-                 description: { type: :string },
-                 cost_price: { type: :string },
-                 price: { type: :string },
-                 net_weight: { type: :number },
-                 created_at: { type: :string },
-                 updated_at: { type: :string }
-               },
-               required: %w[id]
+                 data: {
+                   type: :object,
+                   properties: {
+                     id: { type: :string },
+                     type: { type: :string },
+                     attributes: { type: :object,
+                                   properties: {
+                                     name: { type: :string },
+                                     description: { type: :string },
+                                     cost_price: { type: :string },
+                                     price: { type: :string },
+                                     net_weight: { type: :number },
+                                     created_at: { type: :string },
+                                     updated_at: { type: :string }
+                                   }
+                     }
+                   }
+                 }
+               }
 
         let(:product) { FactoryBot.create(:product) }
         run_test!
@@ -51,24 +60,36 @@ describe 'Products API' do
     get 'List all products' do
       tags 'Products'
       consumes 'application/json'
-      parameter name: :page, in: :query, type: :string
-      parameter name: :per_page, in: :query, type: :string
+      parameter name: :'page[number]', in: :query, type: :string
+      parameter name: :'page[size]', in: :query, type: :string
 
       response '200', 'OK' do
-        schema type: :array,
-               items: {
-                 properties: {
-                   id: { type: :integer },
-                   name: { type: :string },
-                   description: { type: :string },
-                   cost_price: { type: :string },
-                   price: { type: :string },
-                   net_weight: { type: :string },
-                   created_at: { type: :string },
-                   updated_at: { type: :string }
+        schema type: :object,
+               properties: {
+                 data: {
+                   type: :array,
+                   items: {
+                     properties: {
+                       id: { type: :string },
+                       type: { type: :string },
+                       attributes: { type: :object,
+                                     properties: {
+                                       name: { type: :string },
+                                       description: { type: :string },
+                                       cost_price: { type: :string },
+                                       price: { type: :string },
+                                       net_weight: { type: :number },
+                                       created_at: { type: :string },
+                                       updated_at: { type: :string }
+                                     }
+                       }
+                     }
+                   }
                  }
                }
         FactoryBot.create_list(:product, 2)
+        let(:'page[number]') { 1 }
+        let(:'page[size]') { 2 }
         run_test!
       end
     end
@@ -94,15 +115,25 @@ describe 'Products API' do
       response '200', 'OK' do
         schema type: :object,
                properties: {
-                 name: { type: :string },
-                 description: { type: :string },
-                 cost_price: { type: :string },
-                 price: { type: :string },
-                 net_weight: { type: :number },
-                 created_at: { type: :string },
-                 updated_at: { type: :string }
-               },
-               required: %w[id]
+                 data: {
+                   type: :object,
+                   properties: {
+                     id: { type: :string },
+                     type: { type: :string },
+                     attributes: { type: :object,
+                                   properties: {
+                                     name: { type: :string },
+                                     description: { type: :string },
+                                     cost_price: { type: :string },
+                                     price: { type: :string },
+                                     net_weight: { type: :number },
+                                     created_at: { type: :string },
+                                     updated_at: { type: :string }
+                                   }
+                     }
+                   }
+                 }
+               }
 
         let(:product) { FactoryBot.create(:product) }
         let(:id) { product.id }
@@ -130,15 +161,25 @@ describe 'Products API' do
       response '200', 'OK' do
         schema type: :object,
                properties: {
-                 name: { type: :string },
-                 description: { type: :string },
-                 cost_price: { type: :string },
-                 price: { type: :string },
-                 net_weight: { type: :number },
-                 created_at: { type: :string },
-                 updated_at: { type: :string }
-               },
-               required: %w[id]
+                 data: {
+                   type: :object,
+                   properties: {
+                     id: { type: :string },
+                     type: { type: :string },
+                     attributes: { type: :object,
+                                   properties: {
+                                     name: { type: :string },
+                                     description: { type: :string },
+                                     cost_price: { type: :string },
+                                     price: { type: :string },
+                                     net_weight: { type: :number },
+                                     created_at: { type: :string },
+                                     updated_at: { type: :string }
+                                   }
+                     }
+                     }
+                 }
+               }
 
         let(:id) { FactoryBot.create(:product).id }
 

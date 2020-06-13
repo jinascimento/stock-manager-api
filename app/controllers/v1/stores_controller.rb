@@ -4,8 +4,7 @@ module V1
 
     # GET /stores
     def index
-      @store = Store.all.paginate(page: params[:page],
-                                  per_page: params[:per_page])
+      @store = pagination(Store.all)
       json_response(@store)
     end
 

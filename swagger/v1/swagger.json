@@ -51,34 +51,44 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "cost_price": {
-                  "type": "string"
-                },
-                "price": {
-                  "type": "string"
-                },
-                "net_weight": {
-                  "type": "number"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "cost_price": {
+                          "type": "string"
+                        },
+                        "price": {
+                          "type": "string"
+                        },
+                        "net_weight": {
+                          "type": "number"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
                 }
-              },
-              "required": [
-                "id"
-              ]
+              }
             }
           },
           "422": {
@@ -104,12 +114,12 @@
         ],
         "parameters": [
           {
-            "name": "page",
+            "name": "page[number]",
             "in": "query",
             "type": "string"
           },
           {
-            "name": "per_page",
+            "name": "page[size]",
             "in": "query",
             "type": "string"
           }
@@ -118,32 +128,45 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "array",
-              "items": {
-                "properties": {
-                  "id": {
-                    "type": "integer"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  },
-                  "cost_price": {
-                    "type": "string"
-                  },
-                  "price": {
-                    "type": "string"
-                  },
-                  "net_weight": {
-                    "type": "string"
-                  },
-                  "created_at": {
-                    "type": "string"
-                  },
-                  "updated_at": {
-                    "type": "string"
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "cost_price": {
+                            "type": "string"
+                          },
+                          "price": {
+                            "type": "string"
+                          },
+                          "net_weight": {
+                            "type": "number"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -204,31 +227,44 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "cost_price": {
-                  "type": "string"
-                },
-                "price": {
-                  "type": "string"
-                },
-                "net_weight": {
-                  "type": "number"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "cost_price": {
+                          "type": "string"
+                        },
+                        "price": {
+                          "type": "string"
+                        },
+                        "net_weight": {
+                          "type": "number"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
                 }
-              },
-              "required": [
-                "id"
-              ]
+              }
             }
           },
           "422": {
@@ -266,31 +302,44 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "cost_price": {
-                  "type": "string"
-                },
-                "price": {
-                  "type": "string"
-                },
-                "net_weight": {
-                  "type": "number"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "cost_price": {
+                          "type": "string"
+                        },
+                        "price": {
+                          "type": "string"
+                        },
+                        "net_weight": {
+                          "type": "number"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
                 }
-              },
-              "required": [
-                "id"
-              ]
+              }
             }
           },
           "404": {
@@ -383,57 +432,70 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "remaining_amount": {
-                  "type": "integer"
-                },
-                "store_id": {
-                  "type": "integer"
-                },
-                "product_id": {
-                  "type": "ineger"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
-                },
-                "product": {
+                "data": {
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "integer"
-                    },
-                    "name": {
                       "type": "string"
                     },
-                    "description": {
+                    "type": {
                       "type": "string"
                     },
-                    "cost_price": {
-                      "type": "string"
-                    },
-                    "price": {
-                      "type": "string"
-                    },
-                    "net_weight": {
-                      "type": "integer"
-                    },
-                    "created_at": {
-                      "type": "string"
-                    },
-                    "updated_at": {
-                      "type": "string"
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "remaining_amount": {
+                          "type": "integer"
+                        },
+                        "store_id": {
+                          "type": "integer"
+                        },
+                        "product_id": {
+                          "type": "ineger"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        },
+                        "product": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "cost_price": {
+                              "type": "string"
+                            },
+                            "price": {
+                              "type": "string"
+                            },
+                            "net_weight": {
+                              "type": "integer"
+                            },
+                            "created_at": {
+                              "type": "string"
+                            },
+                            "updated_at": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
-              },
-              "required": [
-                "store_id"
-              ]
+              }
             }
           },
           "422": {
@@ -465,12 +527,12 @@
             "required": true
           },
           {
-            "name": "page",
+            "name": "page[number]",
             "in": "query",
             "type": "string"
           },
           {
-            "name": "per_page",
+            "name": "page[size]",
             "in": "query",
             "type": "string"
           }
@@ -479,32 +541,42 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "array",
-              "items": {
-                "properties": {
-                  "id": {
-                    "type": "integer"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  },
-                  "cost_price": {
-                    "type": "number"
-                  },
-                  "price": {
-                    "type": "number"
-                  },
-                  "net_weight": {
-                    "type": "integer"
-                  },
-                  "created_at": {
-                    "type": "string"
-                  },
-                  "updated_at": {
-                    "type": "string"
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "cost_price": {
+                            "type": "number"
+                          },
+                          "price": {
+                            "type": "number"
+                          },
+                          "net_weight": {
+                            "type": "integer"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -562,57 +634,67 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "remaining_amount": {
-                  "type": "integer"
-                },
-                "store_id": {
-                  "type": "integer"
-                },
-                "product_id": {
-                  "type": "ineger"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
-                },
-                "product": {
+                "data": {
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "integer"
-                    },
-                    "name": {
                       "type": "string"
                     },
-                    "description": {
+                    "type": {
                       "type": "string"
                     },
-                    "cost_price": {
-                      "type": "string"
-                    },
-                    "price": {
-                      "type": "string"
-                    },
-                    "net_weight": {
-                      "type": "integer"
-                    },
-                    "created_at": {
-                      "type": "string"
-                    },
-                    "updated_at": {
-                      "type": "string"
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "remaining_amount": {
+                          "type": "integer"
+                        },
+                        "store_id": {
+                          "type": "integer"
+                        },
+                        "product_id": {
+                          "type": "ineger"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        },
+                        "product": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "cost_price": {
+                              "type": "string"
+                            },
+                            "price": {
+                              "type": "string"
+                            },
+                            "net_weight": {
+                              "type": "integer"
+                            },
+                            "created_at": {
+                              "type": "string"
+                            },
+                            "updated_at": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
-              },
-              "required": [
-                "store_id"
-              ]
+              }
             }
           },
           "422": {
@@ -667,58 +749,70 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "remaining_amount": {
-                  "type": "integer"
-                },
-                "store_id": {
-                  "type": "integer"
-                },
-                "product_id": {
-                  "type": "ineger"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
-                },
-                "product": {
+                "data": {
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "integer"
-                    },
-                    "name": {
                       "type": "string"
                     },
-                    "description": {
+                    "type": {
                       "type": "string"
                     },
-                    "cost_price": {
-                      "type": "string"
-                    },
-                    "price": {
-                      "type": "string"
-                    },
-                    "net_weight": {
-                      "type": "integer"
-                    },
-                    "created_at": {
-                      "type": "string"
-                    },
-                    "updated_at": {
-                      "type": "string"
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "remaining_amount": {
+                          "type": "integer"
+                        },
+                        "store_id": {
+                          "type": "integer"
+                        },
+                        "product_id": {
+                          "type": "ineger"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        },
+                        "product": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "cost_price": {
+                              "type": "string"
+                            },
+                            "price": {
+                              "type": "string"
+                            },
+                            "net_weight": {
+                              "type": "integer"
+                            },
+                            "created_at": {
+                              "type": "string"
+                            },
+                            "updated_at": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
-              },
-              "required": [
-                "store_id",
-                "id"
-              ]
+              }
             }
           },
           "404": {
@@ -820,57 +914,70 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "remaining_amount": {
-                  "type": "integer"
-                },
-                "store_id": {
-                  "type": "integer"
-                },
-                "product_id": {
-                  "type": "ineger"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
-                },
-                "product": {
+                "data": {
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "integer"
-                    },
-                    "name": {
                       "type": "string"
                     },
-                    "description": {
+                    "type": {
                       "type": "string"
                     },
-                    "cost_price": {
-                      "type": "string"
-                    },
-                    "price": {
-                      "type": "string"
-                    },
-                    "net_weight": {
-                      "type": "integer"
-                    },
-                    "created_at": {
-                      "type": "string"
-                    },
-                    "updated_at": {
-                      "type": "string"
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "remaining_amount": {
+                          "type": "integer"
+                        },
+                        "store_id": {
+                          "type": "integer"
+                        },
+                        "product_id": {
+                          "type": "integer"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        },
+                        "product": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "cost_price": {
+                              "type": "string"
+                            },
+                            "price": {
+                              "type": "string"
+                            },
+                            "net_weight": {
+                              "type": "integer"
+                            },
+                            "created_at": {
+                              "type": "string"
+                            },
+                            "updated_at": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
-              },
-              "required": [
-                "store_id"
-              ]
+              }
             }
           },
           "404": {
@@ -933,57 +1040,41 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "remaining_amount": {
-                  "type": "integer"
-                },
-                "store_id": {
-                  "type": "integer"
-                },
-                "product_id": {
-                  "type": "ineger"
-                },
-                "created_at": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
-                },
-                "product": {
+                "data": {
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "integer"
-                    },
-                    "name": {
                       "type": "string"
                     },
-                    "description": {
+                    "type": {
                       "type": "string"
                     },
-                    "cost_price": {
-                      "type": "string"
-                    },
-                    "price": {
-                      "type": "string"
-                    },
-                    "net_weight": {
-                      "type": "integer"
-                    },
-                    "created_at": {
-                      "type": "string"
-                    },
-                    "updated_at": {
-                      "type": "string"
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "remaining_amount": {
+                          "type": "integer"
+                        },
+                        "store_id": {
+                          "type": "integer"
+                        },
+                        "product_id": {
+                          "type": "integer"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 }
-              },
-              "required": [
-                "store_id"
-              ]
+              }
             }
           },
           "404": {
@@ -1032,19 +1123,26 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "stock_items": {
-                  "type": "array"
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
                 }
-              },
-              "required": [
-                "id"
-              ]
+              }
             }
           },
           "422": {
@@ -1070,12 +1168,12 @@
         ],
         "parameters": [
           {
-            "name": "page",
+            "name": "page[number]",
             "in": "query",
             "type": "string"
           },
           {
-            "name": "per_page",
+            "name": "page[size]",
             "in": "query",
             "type": "string"
           }
@@ -1084,11 +1182,27 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "array",
-              "items": {
-                "properties": {
-                  "id": {
-                    "type": "integer"
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -1135,19 +1249,29 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "stock_items": {
-                  "type": "array"
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
                 }
-              },
-              "required": [
-                "id"
-              ]
+              }
             }
           },
           "422": {
@@ -1185,19 +1309,26 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "stock_items": {
-                  "type": "array"
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
                 }
-              },
-              "required": [
-                "id"
-              ]
+              }
             }
           },
           "404": {
