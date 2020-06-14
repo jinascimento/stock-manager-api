@@ -1,3 +1,10 @@
+begin
+  require 'rspec/core/rake_task'
+  require 'rspec/core'
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+end
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
