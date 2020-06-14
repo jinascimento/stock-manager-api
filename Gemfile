@@ -13,6 +13,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 # Seamlessly adds a Swagger to Rails-based API's
 gem 'rswag'
+gem 'rspec-core', '~> 3.4'
 # A plugin for versioning Rails based RESTful APIs.
 gem 'versionist'
 gem 'will_paginate', '~> 3.1.0'

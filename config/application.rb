@@ -1,5 +1,10 @@
 require_relative 'boot'
-
+begin
+  require 'rspec/core/rake_task'
+  require 'rspec/core'
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+end
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
