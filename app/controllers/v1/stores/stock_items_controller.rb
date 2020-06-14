@@ -8,7 +8,7 @@ module V1
 
       # GET /stock_items
       def index
-        @stock_item = pagination(StockItem.all)
+        @stock_item = pagination(store.stock_items)
         json_response(@stock_item)
       end
 

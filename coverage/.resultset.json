@@ -36,6 +36,23 @@
         1,
         null
       ],
+      "/Users/macbook/RubymineProjects/stock-manager/app/serializers/pagination_serializer.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        null,
+        null
+      ],
       "/Users/macbook/RubymineProjects/stock-manager/app/services/product_manager/product_creator.rb": [
         1,
         1,
@@ -455,24 +472,8 @@
         null,
         null,
         null
-      ],
-      "/Users/macbook/RubymineProjects/stock-manager/app/serializers/pagination_serializer.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
       ]
     },
-    "timestamp": 1592092600
+    "timestamp": 1592098035
   }
 }
