@@ -67,10 +67,11 @@ STOCK_MANAGER_DB_PORT=
 Acessar URL com apis documentadas:
 
 localhost: http://localhost:3000/api-docs/index.html
+
 heroku: https://stock-manager-jhony.herokuapp.com/api-docs/index.html
 
 * Testes unitários: 
   - `rspec`
   
 Cobertura de testes:  
-- `Abrir arquivo http://localhost:3000/api-docs/index.html`
+localhost: http://localhost:3000/api-docs/index.html
