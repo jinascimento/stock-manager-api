@@ -85,6 +85,4 @@ test:
 #
 production:
   <<: *default
-  database: stock_manager_production
-  username: stock_manager
-  password: <%= ENV['STOCK_MANAGER_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
